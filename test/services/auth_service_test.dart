@@ -57,5 +57,5 @@ void main() {
       // Verificar si logout fue llamado
       verify(mockAuthRepository.logout()).called(1);
     });
-  });
+  }); 
 }
