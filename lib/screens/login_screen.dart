@@ -37,10 +37,12 @@ class _LoginScreenState extends State<LoginScreen> {
           children: <Widget>[
             TextField(
               controller: _emailController,
+              key: const Key('emailField'),
               decoration: InputDecoration(labelText: 'Email'),
             ),
             TextField(
               controller: _passwordController,
+              key: const Key('passwordField'),
               decoration: InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
@@ -50,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(color: Colors.red),
               ),
             ElevatedButton(
+              key: Key('loginButton'),
               onPressed: _login,
               child: Text('Login'),
             ),
@@ -73,7 +76,7 @@ class TodoListScreen extends StatelessWidget {
         itemCount: _todos.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(_todos[index]),
+            title: Text(_todos[index], key: Key(_todos[index]),),
           );
         },
       ),
