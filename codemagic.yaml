@@ -7,8 +7,12 @@ workflows:
       xcode: latest
       cocoapods: default
       ios_signing:
-        distribution_type: app_store # or: ad_hoc | development | enterprise
-        bundle_identifier: com.dev.magic.app.llc
+        provisioning_profiles:
+          - profile_reference
+        certificates:
+          - certificate_reference
+    integrations:
+      app_store_connect:  app-store-connect
     triggering:
       events:
         - push
