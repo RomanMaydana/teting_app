@@ -10,7 +10,7 @@ workflows:
       events:
         - push
       branch_patterns:
-        - pattern: 'test'
+        - pattern: 'dist-ios'
           include: true
           source: true
     scripts:
@@ -20,3 +20,20 @@ workflows:
       - name: Run tests
         script: |
           flutter test
+      - name: Build iOS
+        script: |
+          flutter build ios --release --no-codesign
+      - name: Code signing
+        script: |
+          xcode-project use-profiles
+          xcode-project use-certificates
+          xcode-project build-ipa --scheme "Runner" --configuration "Release"
+    artifacts:
+      - build/ios/ipa
+    publishing:
+      email:
+        recipients:
+          - ro.28745.maydana@gmail.com
+        notify:
+          success: true
+          failure: true
