@@ -6,11 +6,11 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
-      # ios_signing:
-      #   provisioning_profiles:
-      #     - profile_reference
-      #   certificates:
-      #     - certificate_reference
+      ios_signing:
+        provisioning_profiles:
+          - prov_profile
+        certificates:
+          - development_certificates
     integrations:
       app_store_connect:  app-store-connect
     triggering:
