@@ -25,7 +25,7 @@ void main() {
 
     test('Throw an error when dividing by zero', () {
       final calculator = Calculator();
-      expect(calculator.divide(6, 0), throwsArgumentError);
+      expect(()=>calculator.divide(6, 0), throwsArgumentError);
     });
   });
 }

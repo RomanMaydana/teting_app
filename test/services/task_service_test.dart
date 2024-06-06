@@ -76,7 +76,6 @@ void main() {
       await taskService.deleteTask('1');
       final verification = verify(mockTaskRepository.deleteTask(captureAny));
       verification.called(1);
-      print(verification.captured.first);
       final captureTask = verification.captured.first as String;
       expect(captureTask, '1');
       
